@@ -11,11 +11,11 @@
 ## 安装
 
 ```
-cordova plugin add cordova-plugin-payments-uniondocpay --variable APP_ID=你的ID --save
+cordova plugin add cordova-plugin-payments-uniondocpay --save
 ```
 或
 ```
-ionic cordova plugin add cordova-plugin-payments-uniondocpay --variable APP_ID=你的ID
+ionic cordova plugin add cordova-plugin-payments-uniondocpay
 ```
 
 > 相关依赖
