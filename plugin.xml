@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin 
+  xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-payments-uniondocpay" version="1.0.0">
+  <name>Uniondocpay</name>
+  <description>Cordova Plugin for Uniondocpay</description>
+  <license>ISC</license>
+  <keywords>cordova,umeng,unionpay,uniondocpay</keywords>
+  <js-module src="www/Uniondocpay.js" name="Uniondocpay">
+    <clobbers target="Uniondocpay" />
+  </js-module>
+  <platform name="ios">
+    <pods-config ios-min-version="9.0" use-frameworks="true">
+      <source url="https://github.com/CocoaPods/Specs.git"/>
+    </pods-config>
+    <pod name="WeChat_SDK" />
+    <config-file target="config.xml" parent="/*">
+      <feature name="Uniondocpay">
+        <param name="ios-package" value="Uniondocpay" />
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+    <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+      <array>
+        <string>weixin</string>
+        <string>wechat</string>
+        <string>alipays</string>
+      </array>
+    </config-file>
+    <header-file src="sdk/ios/include/UMSPosPayOnly/UMSPPPayFastPay.h" />
+    <header-file src="sdk/ios/include/UMSPosPayOnly/UMSPPPayOrder.h" />
+    <header-file src="sdk/ios/include/UMSPosPayOnly/UMSPPPayPosPay.h" />
+    <header-file src="sdk/ios/include/UMSPosPayOnly/UMSPPPayUnifyPayPlugin.h" />
+    <header-file src="sdk/ios/include/UMSPosPayOnly/UMSPPPayVersionsInfo.h" />
+		<source-file src="sdk/ios/libUMSPosPayOnly.a" framework="true" />
+    <resource-file src="sdk/ios/PosPay_Resource.bundle" />
+    <resource-file src="sdk/ios/UMSSecKeyboardLibResource.bundle" />
+    <header-file src="src/ios/Uniondocpay.h" />
+    <source-file src="src/ios/Uniondocpay.m" />
+  </platform>
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Uniondocpay">
+        <param name="android-package" value="news.chen.yu.ionic.Uniondocpay"/>
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+    <framework src="src/android/Uniondocpay.gradle" custom="true" type="gradleReference" />
+    <source-file src="src/android/Uniondocpay.java" target-dir="src/news/chen/yu/ionic" />
+		<source-file src="sdk/android/qmf-ppplugin-android-2.1.1.aar" target-dir="libs" />
+  </platform>
+</plugin>
